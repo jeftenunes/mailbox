@@ -1,18 +1,10 @@
 defmodule Mailbox do
-  @moduledoc """
-  Documentation for `Mailbox`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Mailbox.hello()
-      :world
-
-  """
   def hello do
-    :world
+    receive do
+      {:id, id} ->
+        IO.puts("Hello, #{id}")
+    end
+
+    hello()
   end
 end
